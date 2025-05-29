@@ -10,5 +10,7 @@ import Home_Page from "./pages/Home_Page.vue";
 <style>
   body{
     background-color: #16A34A;
+    font-family: 'Oxanium', cursive, sans-serif;
+
   }
 </style>
