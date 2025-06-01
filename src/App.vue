@@ -1,6 +1,17 @@
-<script setup>
+<script>
 //import PrimaryButton from "./components/utilities/PrimaryButton.vue"
-import Home_Page from "./pages/Home_Page.vue";
+import Home_Page from "./pages/Home_Page.vue"
+export default{
+  components:{
+    Home_Page
+  },
+  data(){
+    return{
+
+    }
+  }
+}
+  
 </script>
 
 <template>
