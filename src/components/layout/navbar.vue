@@ -5,8 +5,14 @@
         components:{
             PrimaryButton,
             SecundaryButton
+        },
+        methods:{
+            teste(){
+                alert(10);
+            }
         }
     }
+
 </script>
 
 <template>
@@ -25,7 +31,7 @@
             
             <div class="botoesLogin">
                 <SecundaryButton>Entrar</SecundaryButton>
-                <PrimaryButton>Cadastre-se</PrimaryButton>
+                <PrimaryButton @click="teste()">Cadastre-se</PrimaryButton>
                 
             </div>
         </div>
