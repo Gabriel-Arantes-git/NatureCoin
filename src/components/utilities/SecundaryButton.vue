@@ -1,5 +1,5 @@
 <template>
-    <button class="primary-btn">
+    <button class="secundary-btn">
       <slot></slot>
     </button>
   </template>
@@ -9,20 +9,20 @@
   </script>
   
   <style scoped>
-  .primary-btn {
+  .secundary-btn {
       all: unset;
       cursor: pointer;
-      background-color: #FFFFFF;
+      background-color: rgba(21, 128, 61, 0.7);
       border: 1px solid #FFFFFF;
-      color: #166534;
+      color: #FFFFFF;
       border-radius: 0.25rem;
       text-align: center;
       padding: 0.25rem 0.5rem;
   }
   
-  .primary-btn:hover {
-    background-color: #15803D;
-    color: #FFFFFF;
+  .secundary-btn:hover {
+    background-color: #FFFFFF;
+    color: #15803D;
     border-color: #FFFFFF;
     transition: background-color 0.3s ease;
     transform: scale(1.1);
