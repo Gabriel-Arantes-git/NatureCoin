@@ -2,15 +2,25 @@
 import { useRouter } from 'vue-router';
 import PrimaryButton from '../utilities/PrimaryButton.vue';
 import SecundaryButton from '../utilities/SecundaryButton.vue';
+import Popup from '../global/Alerta.vue';
+import { ref } from 'vue';
 
 const router = useRouter();
 console.log(router);
 const irParaHome = () => router.push({ name: 'Home' });
 const irParaPremios = () => router.push({ name: 'Premios' });
 const irParaPainel = () => router.push({ name: 'Dashboard' });
+
+const servicoIndisponivel = ref(false);
 </script>
 
 <template>
+    <Popup
+      :visible="servicoIndisponivel"
+      title="Serviço Indisponível"
+      message="Este serviço está temporariamente indisponível. Tente novamente mais tarde."
+      @close="servicoIndisponivel = false"
+    />
     <div class="corpoNavbar">
         <div class="conteiner">
             <div class="inicio">
@@ -24,7 +34,7 @@ const irParaPainel = () => router.push({ name: 'Dashboard' });
                 <button class="opcoes" @click="irParaPainel">Painel</button>
             </div>
             
-            <div class="botoesLogin">
+            <div class="botoesLogin" @click="servicoIndisponivel = true">
                 <SecundaryButton>Entrar</SecundaryButton>
                 <PrimaryButton>Cadastre-se</PrimaryButton>
                 

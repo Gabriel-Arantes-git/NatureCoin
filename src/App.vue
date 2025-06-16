@@ -18,6 +18,6 @@
 <style>
   body{
     font-family: 'Oxanium', cursive, sans-serif;
-
+    background-color: #16A34A ; /* Verde claro */
   }
 </style>
