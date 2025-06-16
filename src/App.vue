@@ -1,26 +1,22 @@
 <script>
-//import PrimaryButton from "./components/utilities/PrimaryButton.vue"
-import Home_Page from "./pages/Home_Page.vue"
-export default{
-  components:{
-    Home_Page
-  },
-  data(){
-    return{
-
+  import Navbar from './components/layout/Navbar.vue';
+  export default {
+    name: 'App',
+    components: {
+        Navbar
     }
   }
-}
-  
 </script>
 
 <template>
-    <Home_Page/>
+  <div id="app">
+    <Navbar />
+    <router-view />
+  </div>
 </template>
 
 <style>
   body{
-    background-color: #16A34A;
     font-family: 'Oxanium', cursive, sans-serif;
 
   }

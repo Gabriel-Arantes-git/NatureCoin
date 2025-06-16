@@ -1,12 +1,13 @@
-<script>
-    import PrimaryButton from '../utilities/PrimaryButton.vue';
-    import SecundaryButton from '../utilities/SecundaryButton.vue';
-    export default{
-        components:{
-            PrimaryButton,
-            SecundaryButton
-        }
-    }
+<script setup>
+import { useRouter } from 'vue-router';
+import PrimaryButton from '../utilities/PrimaryButton.vue';
+import SecundaryButton from '../utilities/SecundaryButton.vue';
+
+const router = useRouter();
+console.log(router);
+const irParaHome = () => router.push({ name: 'Home' });
+const irParaPremios = () => router.push({ name: 'Premios' });
+const irParaPainel = () => router.push({ name: 'Dashboard' });
 </script>
 
 <template>
@@ -14,13 +15,13 @@
         <div class="conteiner">
             <div class="inicio">
                 <img src="../../assets/icons/Logo.png" style="width: 2.5rem; height: 2.5rem;" alt="">
-                <a id ="home" href="../../pages/Home_Page.vue">NatureCoin</a>
+                <span id ="home" @click="irParaHome">NatureCoin</span>
             </div>
             
             <div class="botoes">
-                <button class="opcoes" onclick="alert(1)" >Inicio</button>
-                <button class="opcoes">Prêmios</button>
-                <button class="opcoes">Painel</button>
+                <button class="opcoes" @click="irParaHome" >Inicio</button>
+                <button class="opcoes" @click="irParaPremios">Prêmios</button>
+                <button class="opcoes" @click="irParaPainel">Painel</button>
             </div>
             
             <div class="botoesLogin">
@@ -40,7 +41,7 @@
     .opcoes:hover {
      color: #41E520;
      transition: background-color 0.3s ease;
-     transform: scale(1.1);
+     transform: scale(1.25);
      text-decoration: underline;
     }
     #home{
@@ -56,10 +57,13 @@
     }
     .corpoNavbar{
         
+        z-index: 2;
         background-color: rgba(21, 128, 61, 0.7);
         border-radius:1rem;
         height: 2.5rem;
         justify-content: center;
+        
+        
 
     }
     .conteiner{
@@ -91,5 +95,6 @@
         cursor: pointer;
         margin-left:1rem;
         color: #FFFFFF;
+        font-size: 1.25rem;
     }
 </style>
