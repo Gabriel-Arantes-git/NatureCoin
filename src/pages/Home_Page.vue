@@ -2,29 +2,33 @@
 import slide1 from '../components/layout/slide1.vue'
 import slide2 from '../components/layout/slide2.vue'
 import slide3 from '../components/layout/slide3.vue'
-import footerslide from '../components/layout/footerslide.vue'
+//import footerslide from '../components/layout/footerslide.vue'
+import HomeTabs from '../components/layout/HomeTabs.vue'
 export default {
     components: {
             slide1,
             slide2,
             slide3,
-            footerslide
+            HomeTabs
         },
   data() {
     return {
-      slides: [
-        'slide1',
-        'slide2',
-        'slide3',
-        'footerslide'
+      slides: [ 
+        { name: 'Início', component: 'slide1' },
+        { name: 'Como Funciona', component: 'slide2' },
+        { name: 'Equipe', component: 'slide3' }
       ],
       currentSlide: 0,
       isScrolling: false
     };
   },
   methods: {
-    mudarSlide(indice){
-        this.currentSlide = indice;
+    // O nome da função foi atualizado para maior clareza
+        changeSlide(index) {
+            // Não permite mudar para um slide que não existe
+            if (index >= 0 && index < this.slides.length) {
+                this.currentSlide = index;
+        }
     },
     onScroll(event) {
       if (this.isScrolling) return;
@@ -43,16 +47,23 @@ export default {
 </script>
 
 <template>
-  <div class="slides-container" tabindex="0" @wheel.prevent="onScroll">
-    <transition name="slide" mode="out-in">
-      <component
-        :is="slides[currentSlide]"
-        :key="currentSlide"
-        class="slide"
-        @mudar-slide="mudarSlide"
-    />
-    </transition>
-  </div>
+    <div class="slides-container" tabindex="0" @wheel.prevent="onScroll">
+        
+        <HomeTabs 
+            :tabs="slides" 
+            :current-slide="currentSlide"
+            @change-slide="changeSlide"
+        />
+
+        <transition name="slide" mode="out-in">
+            <component
+                :is="slides[currentSlide].component"
+                :key="currentSlide"
+                class="slide"
+                @mudar-slide="changeSlide" 
+            />
+        </transition>
+    </div>
 </template>
 
 
